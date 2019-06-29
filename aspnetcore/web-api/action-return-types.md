@@ -108,7 +108,7 @@ public ActionResult<IEnumerable<Product>> Get()
 
 [!code-csharp[](../web-api/action-return-types/samples/WebApiSample.Api.21/Controllers/ProductsController.cs?name=snippet_GetById&highlight=7,10)]
 
-위의 코드에서 404 상태 코드는 제품이 데이터베이스에 존재하지 않는 경우에 반환됩니다. 제품이 없는 경우 해당하는 `Product` 개체가 반환됩니다. ASP.NET Core 2.1 이전에 `return product;` 줄은 `return Ok(product);`이었습니다.
+위의 코드에서 404 상태 코드는 제품이 데이터베이스에 존재하지 않는 경우에 반환됩니다. 제품이 존재하는 경우에는 해당하는 `Product` 개체가 반환됩니다. ASP.NET Core 2.1 이전에 `return product;` 줄은 `return Ok(product);`이었습니다.
 
 > [!TIP]
 > ASP.NET Core 2.1을 기준으로 작업 매개 변수 바인딩 원본 유추는 컨트롤러 클래스를 `[ApiController]` 특성으로 데코레이팅할 때 사용합니다. 경로 템플릿의 이름과 일치하는 매개 변수 이름은 요청 경로 데이터를 사용하여 자동으로 바인딩됩니다. 따라서 위 작업의 `id` 매개 변수가 [[FromRoute]](/dotnet/api/microsoft.aspnetcore.mvc.fromrouteattribute) 특성을 사용하여 명시적으로 주석으로 추가되지 않습니다.
